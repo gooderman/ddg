@@ -1,0 +1,47 @@
+--[[
+//=================tween function in shader================
+float tout(float s) 
+{ 	
+	return 1.0-s;
+}
+float linear(float s) 
+{ 	
+	return s;
+}
+float quad(float s) 
+{ 	
+	return s*s;
+}
+float cubic(float s) 
+{ 	
+	return s*s*s;
+}
+float sine(float s) 
+{ 	
+	return 1.0 - cos(s*3.1415/2);
+}
+float expo(float s) 
+{ 	
+	return pow(2.0, 10*(s-1));
+}
+float circ(float s) 
+{ 	
+	return 1.0 - sqrt(max(0.0,1.0-s*s));
+}
+float back(float s) 
+{ 	
+	float b = 1.70158; 
+	return s*s*((b+1)*s - b);
+}
+float bounce(float s) 
+{ 	
+	float a = min(7.5625 * pow(s, 2),7.5625 * pow((s - .545455), 2) + .75);
+	float b = min(7.5625 * pow((s - .818182), 2) + .90375,7.5625 * pow((s - .954546), 2) + .984375);
+	return min(a,b);
+}
+float elastic(float s) 
+{ 	
+	float pi = 3.1415;
+	return -sin(2.0/0.3 * pi * (s-1) - asin(1.0)) * pow(2, 10*(s-1));
+}
+--]]

@@ -1,0 +1,743 @@
+{
+  "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+  "Version": "3.10.0.0",
+  "Name": "box",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 60,
+        "Speed": 0.5,
+        "Timelines": [
+          {
+            "ActionTag": 1758523301,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 77.52,
+                "Y": 119.94,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Points": [
+                    {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    {
+                      "X": 0.18,
+                      "Y": 0.91
+                    },
+                    {
+                      "X": 0.84,
+                      "Y": 0.08
+                    },
+                    {
+                      "X": 1.0,
+                      "Y": 1.0
+                    }
+                  ],
+                  "Type": -1
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 102.52,
+                "Y": 136.94,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Points": [
+                    {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    {
+                      "X": 0.19,
+                      "Y": 0.99
+                    },
+                    {
+                      "X": 0.66,
+                      "Y": 0.22
+                    },
+                    {
+                      "X": 1.0,
+                      "Y": 1.0
+                    }
+                  ],
+                  "Type": -1
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 44.52,
+                "Y": 95.94,
+                "FrameIndex": 20,
+                "EasingData": {
+                  "Points": [
+                    {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    {
+                      "X": 0.8,
+                      "Y": 0.11
+                    },
+                    {
+                      "X": 1.0,
+                      "Y": 0.42
+                    },
+                    {
+                      "X": 1.0,
+                      "Y": 1.0
+                    }
+                  ],
+                  "Type": -1
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 76.52,
+                "Y": 167.94,
+                "FrameIndex": 30,
+                "EasingData": {
+                  "Type": 3
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 118.52,
+                "Y": 81.94,
+                "FrameIndex": 40,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 30.52,
+                "Y": 161.94,
+                "FrameIndex": 50,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 77.52,
+                "Y": 119.94,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1758523301,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Points": [
+                    {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    {
+                      "X": 0.18,
+                      "Y": 0.91
+                    },
+                    {
+                      "X": 0.84,
+                      "Y": 0.08
+                    },
+                    {
+                      "X": 1.0,
+                      "Y": 1.0
+                    }
+                  ],
+                  "Type": -1
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Points": [
+                    {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    {
+                      "X": 0.19,
+                      "Y": 0.99
+                    },
+                    {
+                      "X": 0.66,
+                      "Y": 0.22
+                    },
+                    {
+                      "X": 1.0,
+                      "Y": 1.0
+                    }
+                  ],
+                  "Type": -1
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 20,
+                "EasingData": {
+                  "Points": [
+                    {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    {
+                      "X": 0.8,
+                      "Y": 0.11
+                    },
+                    {
+                      "X": 1.0,
+                      "Y": 0.42
+                    },
+                    {
+                      "X": 1.0,
+                      "Y": 1.0
+                    }
+                  ],
+                  "Type": -1
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 30,
+                "EasingData": {
+                  "Type": 3
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1758523301,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Points": [
+                    {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    {
+                      "X": 0.18,
+                      "Y": 0.91
+                    },
+                    {
+                      "X": 0.84,
+                      "Y": 0.08
+                    },
+                    {
+                      "X": 1.0,
+                      "Y": 1.0
+                    }
+                  ],
+                  "Type": -1
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 60.0,
+                "Y": 60.0,
+                "FrameIndex": 10,
+                "EasingData": {
+                  "Points": [
+                    {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    {
+                      "X": 0.19,
+                      "Y": 0.99
+                    },
+                    {
+                      "X": 0.66,
+                      "Y": 0.22
+                    },
+                    {
+                      "X": 1.0,
+                      "Y": 1.0
+                    }
+                  ],
+                  "Type": -1
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 120.0,
+                "Y": 120.0,
+                "FrameIndex": 20,
+                "EasingData": {
+                  "Points": [
+                    {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    {
+                      "X": 0.8,
+                      "Y": 0.11
+                    },
+                    {
+                      "X": 1.0,
+                      "Y": 0.42
+                    },
+                    {
+                      "X": 1.0,
+                      "Y": 1.0
+                    }
+                  ],
+                  "Type": -1
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 180.0,
+                "Y": 180.0,
+                "FrameIndex": 30,
+                "EasingData": {
+                  "Type": 3
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 240.0,
+                "Y": 240.0,
+                "FrameIndex": 40,
+                "EasingData": {
+                  "Type": 6
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 300.0,
+                "Y": 300.0,
+                "FrameIndex": 50,
+                "EasingData": {
+                  "Type": 9
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 360.0,
+                "Y": 360.0,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 14
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 60,
+          "Name": "anima",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Children": [
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 132,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 30,
+              "G": 144
+            },
+            "FirstColor": {
+              "R": 144,
+              "G": 238,
+              "B": 144
+            },
+            "EndColor": {
+              "R": 173,
+              "G": 216,
+              "B": 230
+            },
+            "ColorVector": {
+              "ScaleX": -0.7431,
+              "ScaleY": 0.6691
+            },
+            "Scale9OriginX": -31,
+            "Scale9OriginY": -13,
+            "Scale9Width": 62,
+            "Scale9Height": 26,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -1.0,
+              "Y": 0.9328
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0031,
+              "Y": 0.0019
+            },
+            "PercentWidthEnable": true,
+            "PercentHeightEnable": true,
+            "PercentWidthEnabled": true,
+            "PercentHeightEnabled": true,
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "LeftMargin": -1.0,
+            "RightMargin": 1.0,
+            "TopMargin": -0.9328,
+            "BottomMargin": 0.9328,
+            "Tag": 27,
+            "ActionTag": -134542216,
+            "Size": {
+              "X": 320.0,
+              "Y": 480.0
+            },
+            "Name": "bg",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FontSize": 24,
+            "ButtonText": "A",
+            "TextColor": {
+              "R": 26,
+              "G": 26,
+              "B": 26
+            },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "appbox/ui/s9img.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 64,
+            "Scale9Height": 68,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 77.5149,
+              "Y": 340.1962
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2422,
+              "Y": 0.7087
+            },
+            "PreSize": {
+              "X": 0.2937,
+              "Y": 0.1875
+            },
+            "LeftMargin": 30.5149,
+            "RightMargin": 195.4851,
+            "TopMargin": 94.8038,
+            "BottomMargin": 295.1962,
+            "Tag": 28,
+            "ActionTag": -1299024194,
+            "Size": {
+              "X": 94.0,
+              "Y": 90.0
+            },
+            "Name": "btn_a",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 24,
+            "ButtonText": "B",
+            "TextColor": {
+              "B": 0
+            },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "appbox/ui/s9img.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 64,
+            "Scale9Height": 68,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 77.5151,
+              "Y": 229.9687
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2422,
+              "Y": 0.4791
+            },
+            "PreSize": {
+              "X": 0.2937,
+              "Y": 0.1875
+            },
+            "LeftMargin": 30.5151,
+            "RightMargin": 195.4849,
+            "TopMargin": 205.0313,
+            "BottomMargin": 184.9687,
+            "CallBackType": "Touch",
+            "CallBackName": "good",
+            "Tag": 29,
+            "ActionTag": -843156534,
+            "Size": {
+              "X": 94.0,
+              "Y": 90.0
+            },
+            "Name": "btn_b",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 48,
+            "ButtonText": "C",
+            "TextColor": {
+              "G": 0,
+              "B": 0
+            },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "appbox/ui/s9img.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 64,
+            "Scale9Height": 68,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 77.52,
+              "Y": 119.94
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 360.0,
+            "RotationSkewY": 360.0,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2422,
+              "Y": 0.2499
+            },
+            "PreSize": {
+              "X": 0.2937,
+              "Y": 0.1875
+            },
+            "LeftMargin": 30.52,
+            "RightMargin": 195.48,
+            "TopMargin": 315.06,
+            "BottomMargin": 74.94,
+            "CallBackType": "Click",
+            "CallBackName": "look",
+            "Tag": 30,
+            "ActionTag": 1758523301,
+            "Size": {
+              "X": 94.0,
+              "Y": 90.0
+            },
+            "Name": "btn_c",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 36,
+            "LabelText": "result",
+            "HorizontalAlignmentType": "HT_Center",
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 220.9443,
+              "Y": 366.9168
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "B": 0
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6905,
+              "Y": 0.7644
+            },
+            "PreSize": {
+              "X": 0.3375,
+              "Y": 0.075
+            },
+            "LeftMargin": 166.9443,
+            "RightMargin": 45.0557,
+            "TopMargin": 95.0832,
+            "BottomMargin": 348.9168,
+            "Tag": 31,
+            "ActionTag": 298334499,
+            "Size": {
+              "X": 108.0,
+              "Y": 36.0
+            },
+            "Name": "txt",
+            "ctype": "TextObjectData"
+          },
+          {
+            "CharWidth": 28,
+            "CharHeight": 41,
+            "LabelText": "007",
+            "StartChar": "0",
+            "LabelAtlasFileImage_CNB": {
+              "Type": "Normal",
+              "Path": "appbox/ui/afont.png",
+              "Plist": ""
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 151.8774,
+              "Y": 442.7859
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4746,
+              "Y": 0.9225
+            },
+            "PreSize": {
+              "X": 0.2625,
+              "Y": 0.0854
+            },
+            "LeftMargin": 109.8774,
+            "RightMargin": 126.1226,
+            "TopMargin": 16.7141,
+            "BottomMargin": 422.2859,
+            "Tag": 38,
+            "ActionTag": -1175440660,
+            "Size": {
+              "X": 84.0,
+              "Y": 41.0
+            },
+            "Name": "AtlasLabel_1",
+            "ctype": "TextAtlasObjectData"
+          }
+        ],
+        "Size": {
+          "X": 320.0,
+          "Y": 480.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "appbox/ui/afont.png",
+        "appbox/ui/s9img.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}
