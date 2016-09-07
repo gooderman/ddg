@@ -21,10 +21,10 @@ require("tiled.tiledload")
 require("util.fs")
 require("http.http")
 
-package.path = "D:/game/vv2d/project/ddg/scripts/apptest/?.lua"..package.path
-print(package.path)
-require("apptest.scenes.TestScene")
-require("scenes.TestScene")
+-- package.path = "D:/game/vv2d/project/ddg/scripts/apptest/?.lua"..package.path
+-- print(package.path)
+-- require("apptest.scenes.TestScene")
+-- require("scenes.TestScene")
 
 local tb = string.split(package.path,';')
 for _,v in ipairs(tb) do

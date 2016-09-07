@@ -7,6 +7,6 @@ function __G__TRACKBACK__(errorMessage)
 end
 
 -- require("app.MyApp").new():run()
--- require("apptest.TstApp").new():run()
-require("appbox.app").new():run()
+require("apptest.TstApp").new():run()
+-- require("appeditor.EditorApp").new():run()
 
