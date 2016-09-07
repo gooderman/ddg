@@ -1,4 +1,3 @@
-print(...)
 import("uis.GenUiUtil")
 local ALayer = import(".ALayer")
 local TestScene = class("TestScene", function()
@@ -31,7 +30,9 @@ function TestScene:ctor()
 		{"tstGif",		handler(self,self.tstGif)},
 		{"tstBlend",	handler(self,self.tstBlend)},
 		{"tstAnim",		handler(self,self.tstAnim)},
-		{"tstMount",	handler(self,self.tstMount)},		
+		{"tstMount",	handler(self,self.tstMount)},
+		{"tstLuaSocket", handler(self,self.tstLuaSocket)},	
+		{"tstWebView",	handler(self,self.tstWebView)},	
 
 	}
 	self.TND = display.newNode()
@@ -681,7 +682,7 @@ function TestScene:tstEdit()
 	self:addChild(nd)
 	nd:setContentSize(cc.size(200,50))
 	print(nd:getPositionY(),nd:isVisible())
-	nd:runAction(CCScaleTo:create(2.0, 100.0))
+	-- nd:runAction(CCScaleTo:create(2.0, 100.0))
 
 end	
 function TestScene:tstGif()
@@ -790,14 +791,83 @@ function TestScene:tstMount()
 	print("@app/a.txt == ",fs.data("@app/a.txt"))
 	print("@app/add/b.txt == ",fs.data("@app/add/b.txt"))
 	print("@app/add/ccc/c.txt == ",fs.data("@app/add/ccc/c.txt"))
-	local sp = display.newSprite("@app/sub/s9a.png",200,200)
-	self:addTestNd(sp)
-
-
 	fs.unmount(source)
 	print("@app/a.txt == ",fs.data("@app/a.txt"))
 	fs.mountclean()
 
+end
+
+function TestScene:tstLuaSocket()
+	local socket = require "socket"
+	local socket_core = require "socket.core"
+	print(socket==socket_core)
+	local ltn12 = require("ltn12") 		
+	print(ltn12)
+	local mime = require("mime") 		
+	print(mime)
+	local ftp = require("socket.ftp") 	
+	print(ftp)
+	local headers = require("socket.headers") 
+	print(headers)
+	local mbox = require("socket.mbox") 		
+	print(mbox)
+	local smtp = require("socket.smtp") 
+	print(smtp)
+	local tp = require("socket.tp") 
+	print(tp)
+	local url = require("socket.url") 
+	print(url)
+	local httptt = require("socket.http")
+	print(httptt)
+
+	local addrinfo,err = socket.dns.getaddrinfo("www.bing.com")
+	dump(addrinfo)
+	local addrinfo,err = socket.dns.getaddrinfo("192.168.1.1")
+	dump(addrinfo)
+	local myip = socket.dns.toip("www.baidu.com")
+	print("myip = ",myip)
+
+	local t={}
+	local r,e,h= 
+		httptt.request{ 
+	    	url = "http://www.baidu.com", 
+	    	sink = ltn12.sink.table(t),
+	    	--sink = ltn12.sink.file(io.open("/Users/jeep/a.txt"))
+	    	port= 80,
+	    	timeout = 1,
+	    	useragent= "good",
+	    }
+
+	print(e)
+	print(r)
+	dump(h)
+	for k,v in pairs(t) do
+		print(k,string.sub(v,1,16))
+	end	
+end
+function lua_js_callback(data)
+	print("lua_js_callback",data)
+	local obj = json.decode(data)
+	if(obj) then
+		if(obj.cmd=='goback') then
+			callLuaBridgeMethod("hide_webview",{})
+			show_webview = false
+		elseif(obj.cmd=='del') then
+			callLuaBridgeMethod("del_webview",{})
+			show_webview = false
+		end	
+	end
+	
+end
+
+function TestScene:tstWebView()
+	if(not show_webview) then
+		show_webview = true
+		callLuaBridgeMethod("show_webview",{"res/js/game.html",lua_js_callback})
+		-- callLuaBridgeMethod("show_webview",{"http://192.168.1.27:8080/zhpay/index.html",lua_js_callback})		
+		-- callLuaBridgeMethod("show_webview",{"http://gamecenter.egret-labs.org/?chanId=20409&welcome=1",lua_js_callback})
+
+	end	
 end
 
 return TestScene

@@ -16,6 +16,9 @@ local LuaBridgeInfo =
 	["getAppVersionName"] 	= {methodName = "getAppVersionName",	javaClassName = "com/heygam/dsx/Dsx",	javaMethodSig="()Ljava/lang/String;",	ocClassName = "LuaOCBridge"},
 	["isShowLoginButton"] 	= {methodName = "isShowLoginButton",	javaClassName = "com/heygam/dsxinfo/DsxInfo",	javaMethodSig="()I",	ocClassName = nil},
 	["getPlatformImei"] 	= {methodName = "getPlatformImei",	javaClassName = "com/heygam/dsxinfo/DsxInfo",	javaMethodSig="()Ljava/lang/String;"},
+	["show_webview"] 		= {methodName = "show_webview",	javaClassName = "org/cocos2dx/lib/Cocos2dxJavaInterface",	javaMethodSig="(Ljava/lang/String;I)V"},
+	["hide_webview"] 		= {methodName = "hide_webview",	javaClassName = "org/cocos2dx/lib/Cocos2dxJavaInterface",	javaMethodSig="()V"},
+	["del_webview"] 		= {methodName = "del_webview",	javaClassName = "org/cocos2dx/lib/Cocos2dxJavaInterface",	javaMethodSig="()V"},
 
 }
 function callLuaBridgeMethod(name,param)
