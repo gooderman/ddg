@@ -690,7 +690,13 @@ function M.load_tb(jsontb,evtname,func)
 	local animlist = jsontb.Content.Content.AnimationList
 	--use custom class name force if editor not mark
 	if(func) then
-		func(root)
+		-- local rt = root
+		root=func(root)
+		-- print(tostring(rt))
+		-- print(tostring(root))
+		if not root then
+			return
+		end
 	end	
 	------------------------------------------------
 	for _,v in ipairs(res) do
@@ -730,9 +736,31 @@ function M.load_listviewcell(jsonfile)
 										v.CustomClassName='CellButton'										
 									end									
 								end
+								return root
 						   end
 	)	
 end	
+
+function M.load_child(jsonfile,evtname,childname)
+	return M.load(jsonfile,evtname,function(root)
+								local function search(parent,name)
+									for _,v in ipairs(parent.Children or {}) do
+										if(v.Name==name) then
+											return v
+										else
+											local r = search(v,name)
+											if(r) then
+												return r
+											end
+										end								
+									end									
+								end
+								root = search(root,childname)
+								return root
+						   end
+	)
+end
+
 ----------------------------------------------
 --gen node
 function M.createNode(jsonfile)
@@ -747,9 +775,14 @@ end
 --[[
 1.can parse scene.ccs and layer.css as same format
 2.img and sprite can use plist
-3.btn not support plist
+3.btn can use plist
 4.listviewcell pageviewvell use CustomClassName:ListViewCell
 5.CellBtn use CustomClassName:CellBtn
+6.support regist evt, use evtdata from editor
+7.support gen one node by load_child according childname
+-------------------------------------------------------------
+no finish:
+1.play all anim by parent node,now just support play anim of one node.
 --]]
 ccsload=M
 

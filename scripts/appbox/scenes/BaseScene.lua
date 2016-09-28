@@ -20,6 +20,9 @@ end
 function BaseScene:loadccs(file,isevt)
 	return ccsload.load(file,isevt and tostring(self))
 end
+function BaseScene:loadccs_child(file,isevt,child)
+	return ccsload.load_child(file,isevt and tostring(self),child)
+end
 function BaseScene:addccsevt(listener)
 	ccsevt.addEventListenerByTarget(self,tostring(self),listener)
 end

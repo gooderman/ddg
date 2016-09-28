@@ -3,8 +3,15 @@ local ALayer = import(".ALayer")
 local TestScene = class("TestScene", function()
     return display.newScene("TestScene")
 end)
-local timer = require("framework.scheduler")	
+local timer = require("framework.scheduler")
+
+local Abeizer = import(".Abeizer")	
 function TestScene:ctor()
+	if(true) then		
+		self:addChild(Abeizer:new())
+		return
+	end
+	
 	local listconfig=
 	{		
 		{"tstScrollview",	handler(self,self.tstScrollview)},

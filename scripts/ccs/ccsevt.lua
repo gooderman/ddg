@@ -33,7 +33,7 @@ MM.genevt = function(ename,type,data,node)
 	local evt=
 	{
 		name = ename,
-		type = type=="Touch" and "t "or "c",
+		type = type=="Touch" and "t" or "c",
 		data = data,
 		node = node,
 	}

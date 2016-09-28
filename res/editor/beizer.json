@@ -1,0 +1,902 @@
+{
+  "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+  "Version": "3.10.0.0",
+  "Name": "beizer",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "editor/s9a.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 31,
+            "Scale9OriginY": 29,
+            "Scale9Width": 32,
+            "Scale9Height": 32,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 313.0941,
+              "Y": 596.5237
+            },
+            "Scale": {
+              "ScaleX": 1.25,
+              "ScaleY": 1.25
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4892,
+              "Y": 0.6214
+            },
+            "PreSize": {
+              "X": 0.0375,
+              "Y": 0.025
+            },
+            "LeftMargin": 301.0941,
+            "RightMargin": 314.9059,
+            "TopMargin": 351.4763,
+            "BottomMargin": 584.5237,
+            "Tag": 17,
+            "Children": [
+              {
+                "CharWidth": 64,
+                "CharHeight": 90,
+                "LabelText": "4",
+                "StartChar": "0",
+                "LabelAtlasFileImage_CNB": {
+                  "Type": "Normal",
+                  "Path": "editor/font.png",
+                  "Plist": ""
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 11.5001,
+                  "Y": 12.7105
+                },
+                "Scale": {
+                  "ScaleX": 0.25,
+                  "ScaleY": 0.25
+                },
+                "CColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4792,
+                  "Y": 0.5296
+                },
+                "PreSize": {
+                  "X": 2.6667,
+                  "Y": 3.75
+                },
+                "LeftMargin": -20.4999,
+                "RightMargin": -19.5001,
+                "TopMargin": -33.7105,
+                "BottomMargin": -32.2895,
+                "Tag": 20,
+                "ActionTag": -1328720862,
+                "Size": {
+                  "X": 64.0,
+                  "Y": 90.0
+                },
+                "Name": "t",
+                "ctype": "TextAtlasObjectData"
+              }
+            ],
+            "ActionTag": -1308929535,
+            "Size": {
+              "X": 24.0,
+              "Y": 24.0
+            },
+            "Name": "4",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "editor/s9a.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 31,
+            "Scale9OriginY": 29,
+            "Scale9Width": 32,
+            "Scale9Height": 32,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 314.5645,
+              "Y": 920.3513
+            },
+            "Scale": {
+              "ScaleX": 1.62,
+              "ScaleY": 1.62
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4915,
+              "Y": 0.9587
+            },
+            "PreSize": {
+              "X": 0.0375,
+              "Y": 0.025
+            },
+            "LeftMargin": 302.5645,
+            "RightMargin": 313.4355,
+            "TopMargin": 27.6487,
+            "BottomMargin": 908.3513,
+            "Tag": 37,
+            "Children": [
+              {
+                "CharWidth": 64,
+                "CharHeight": 90,
+                "LabelText": "1",
+                "StartChar": "0",
+                "LabelAtlasFileImage_CNB": {
+                  "Type": "Normal",
+                  "Path": "editor/font.png",
+                  "Plist": ""
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 11.5001,
+                  "Y": 12.7105
+                },
+                "Scale": {
+                  "ScaleX": 0.28,
+                  "ScaleY": 0.28
+                },
+                "CColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4792,
+                  "Y": 0.5296
+                },
+                "PreSize": {
+                  "X": 2.6667,
+                  "Y": 3.75
+                },
+                "LeftMargin": -20.4999,
+                "RightMargin": -19.5001,
+                "TopMargin": -33.7105,
+                "BottomMargin": -32.2895,
+                "Tag": 38,
+                "ActionTag": -1005931346,
+                "Size": {
+                  "X": 64.0,
+                  "Y": 90.0
+                },
+                "Name": "t",
+                "ctype": "TextAtlasObjectData"
+              }
+            ],
+            "ActionTag": 1250285136,
+            "Size": {
+              "X": 24.0,
+              "Y": 24.0
+            },
+            "Name": "1",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "editor/s9a.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 31,
+            "Scale9OriginY": 29,
+            "Scale9Width": 32,
+            "Scale9Height": 32,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 42.5701,
+              "Y": 818.0366
+            },
+            "Scale": {
+              "ScaleX": 1.56,
+              "ScaleY": 1.56
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0665,
+              "Y": 0.8521
+            },
+            "PreSize": {
+              "X": 0.0375,
+              "Y": 0.025
+            },
+            "LeftMargin": 30.5701,
+            "RightMargin": 585.4299,
+            "TopMargin": 129.9634,
+            "BottomMargin": 806.0366,
+            "Tag": 39,
+            "Children": [
+              {
+                "CharWidth": 64,
+                "CharHeight": 90,
+                "LabelText": "2",
+                "StartChar": "0",
+                "LabelAtlasFileImage_CNB": {
+                  "Type": "Normal",
+                  "Path": "editor/font.png",
+                  "Plist": ""
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 11.5001,
+                  "Y": 12.7105
+                },
+                "Scale": {
+                  "ScaleX": 0.25,
+                  "ScaleY": 0.25
+                },
+                "CColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4792,
+                  "Y": 0.5296
+                },
+                "PreSize": {
+                  "X": 2.6667,
+                  "Y": 3.75
+                },
+                "LeftMargin": -20.4999,
+                "RightMargin": -19.5001,
+                "TopMargin": -33.7105,
+                "BottomMargin": -32.2895,
+                "Tag": 40,
+                "ActionTag": -588099379,
+                "Size": {
+                  "X": 64.0,
+                  "Y": 90.0
+                },
+                "Name": "t",
+                "ctype": "TextAtlasObjectData"
+              }
+            ],
+            "ActionTag": -1642130312,
+            "Size": {
+              "X": 24.0,
+              "Y": 24.0
+            },
+            "Name": "2",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "editor/s9a.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 31,
+            "Scale9OriginY": 29,
+            "Scale9Width": 32,
+            "Scale9Height": 32,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 49.4228,
+              "Y": 696.0657
+            },
+            "Scale": {
+              "ScaleX": 1.63,
+              "ScaleY": 1.63
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0772,
+              "Y": 0.7251
+            },
+            "PreSize": {
+              "X": 0.0375,
+              "Y": 0.025
+            },
+            "LeftMargin": 37.4228,
+            "RightMargin": 578.5772,
+            "TopMargin": 251.9343,
+            "BottomMargin": 684.0657,
+            "Tag": 41,
+            "Children": [
+              {
+                "CharWidth": 64,
+                "CharHeight": 90,
+                "LabelText": "3",
+                "StartChar": "0",
+                "LabelAtlasFileImage_CNB": {
+                  "Type": "Normal",
+                  "Path": "editor/font.png",
+                  "Plist": ""
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 11.5001,
+                  "Y": 12.7105
+                },
+                "Scale": {
+                  "ScaleX": 0.28,
+                  "ScaleY": 0.28
+                },
+                "CColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4792,
+                  "Y": 0.5296
+                },
+                "PreSize": {
+                  "X": 2.6667,
+                  "Y": 3.75
+                },
+                "LeftMargin": -20.4999,
+                "RightMargin": -19.5001,
+                "TopMargin": -33.7105,
+                "BottomMargin": -32.2895,
+                "Tag": 42,
+                "ActionTag": 762392569,
+                "Size": {
+                  "X": 64.0,
+                  "Y": 90.0
+                },
+                "Name": "t",
+                "ctype": "TextAtlasObjectData"
+              }
+            ],
+            "ActionTag": -292769970,
+            "Size": {
+              "X": 24.0,
+              "Y": 24.0
+            },
+            "Name": "3",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "editor/s9a.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 31,
+            "Scale9OriginY": 29,
+            "Scale9Width": 32,
+            "Scale9Height": 32,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 486.238,
+              "Y": 474.1785
+            },
+            "Scale": {
+              "ScaleX": 1.49,
+              "ScaleY": 1.49
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7597,
+              "Y": 0.4939
+            },
+            "PreSize": {
+              "X": 0.0375,
+              "Y": 0.025
+            },
+            "LeftMargin": 474.238,
+            "RightMargin": 141.762,
+            "TopMargin": 473.8215,
+            "BottomMargin": 462.1785,
+            "Tag": 44,
+            "Children": [
+              {
+                "CharWidth": 64,
+                "CharHeight": 90,
+                "LabelText": "5",
+                "StartChar": "0",
+                "LabelAtlasFileImage_CNB": {
+                  "Type": "Normal",
+                  "Path": "editor/font.png",
+                  "Plist": ""
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 11.5001,
+                  "Y": 12.7105
+                },
+                "Scale": {
+                  "ScaleX": 0.25,
+                  "ScaleY": 0.25
+                },
+                "CColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4792,
+                  "Y": 0.5296
+                },
+                "PreSize": {
+                  "X": 2.6667,
+                  "Y": 3.75
+                },
+                "LeftMargin": -20.4999,
+                "RightMargin": -19.5001,
+                "TopMargin": -33.7105,
+                "BottomMargin": -32.2895,
+                "Tag": 45,
+                "ActionTag": -1377298391,
+                "Size": {
+                  "X": 64.0,
+                  "Y": 90.0
+                },
+                "Name": "t",
+                "ctype": "TextAtlasObjectData"
+              }
+            ],
+            "ActionTag": -2016100005,
+            "Size": {
+              "X": 24.0,
+              "Y": 24.0
+            },
+            "Name": "5",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "editor/s9a.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 31,
+            "Scale9OriginY": 29,
+            "Scale9Width": 32,
+            "Scale9Height": 32,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 505.7814,
+              "Y": 279.3836
+            },
+            "Scale": {
+              "ScaleX": 1.46,
+              "ScaleY": 1.46
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7903,
+              "Y": 0.291
+            },
+            "PreSize": {
+              "X": 0.0375,
+              "Y": 0.025
+            },
+            "LeftMargin": 493.7814,
+            "RightMargin": 122.2186,
+            "TopMargin": 668.6164,
+            "BottomMargin": 267.3836,
+            "Tag": 46,
+            "Children": [
+              {
+                "CharWidth": 64,
+                "CharHeight": 90,
+                "LabelText": "6",
+                "StartChar": "0",
+                "LabelAtlasFileImage_CNB": {
+                  "Type": "Normal",
+                  "Path": "editor/font.png",
+                  "Plist": ""
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 11.5001,
+                  "Y": 12.7105
+                },
+                "Scale": {
+                  "ScaleX": 0.25,
+                  "ScaleY": 0.25
+                },
+                "CColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4792,
+                  "Y": 0.5296
+                },
+                "PreSize": {
+                  "X": 2.6667,
+                  "Y": 3.75
+                },
+                "LeftMargin": -20.4999,
+                "RightMargin": -19.5001,
+                "TopMargin": -33.7105,
+                "BottomMargin": -32.2895,
+                "Tag": 47,
+                "ActionTag": 799816211,
+                "Size": {
+                  "X": 64.0,
+                  "Y": 90.0
+                },
+                "Name": "t",
+                "ctype": "TextAtlasObjectData"
+              }
+            ],
+            "ActionTag": -346633880,
+            "Size": {
+              "X": 24.0,
+              "Y": 24.0
+            },
+            "Name": "6",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "editor/s9a.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 31,
+            "Scale9OriginY": 29,
+            "Scale9Width": 32,
+            "Scale9Height": 32,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 194.995,
+              "Y": 65.7678
+            },
+            "Scale": {
+              "ScaleX": 1.37,
+              "ScaleY": 1.37
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3047,
+              "Y": 0.0685
+            },
+            "PreSize": {
+              "X": 0.0375,
+              "Y": 0.025
+            },
+            "LeftMargin": 182.995,
+            "RightMargin": 433.005,
+            "TopMargin": 882.2322,
+            "BottomMargin": 53.7678,
+            "Tag": 48,
+            "Children": [
+              {
+                "CharWidth": 64,
+                "CharHeight": 90,
+                "LabelText": "7",
+                "StartChar": "0",
+                "LabelAtlasFileImage_CNB": {
+                  "Type": "Normal",
+                  "Path": "editor/font.png",
+                  "Plist": ""
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 11.5001,
+                  "Y": 12.7105
+                },
+                "Scale": {
+                  "ScaleX": 0.25,
+                  "ScaleY": 0.25
+                },
+                "CColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4792,
+                  "Y": 0.5296
+                },
+                "PreSize": {
+                  "X": 2.6667,
+                  "Y": 3.75
+                },
+                "LeftMargin": -20.4999,
+                "RightMargin": -19.5001,
+                "TopMargin": -33.7105,
+                "BottomMargin": -32.2895,
+                "Tag": 49,
+                "ActionTag": 908206712,
+                "Size": {
+                  "X": 64.0,
+                  "Y": 90.0
+                },
+                "Name": "t",
+                "ctype": "TextAtlasObjectData"
+              }
+            ],
+            "ActionTag": -783220081,
+            "Size": {
+              "X": 24.0,
+              "Y": 24.0
+            },
+            "Name": "7",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FontSize": 20,
+            "ButtonText": "RUN",
+            "TextColor": {
+              "G": 0,
+              "B": 0
+            },
+            "NormalFileData": {
+              "Type": "Normal",
+              "Path": "editor/s9a.png",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 64,
+            "Scale9Height": 68,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 50.6641,
+              "Y": 48.4566
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0792,
+              "Y": 0.0505
+            },
+            "PreSize": {
+              "X": 0.1469,
+              "Y": 0.0938
+            },
+            "LeftMargin": 3.6641,
+            "RightMargin": 542.3359,
+            "TopMargin": 866.5434,
+            "BottomMargin": 3.4566,
+            "Tag": 50,
+            "ActionTag": 1309100999,
+            "Size": {
+              "X": 94.0,
+              "Y": 90.0
+            },
+            "Name": "btn",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "editor/ystw.plist",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 769
+            },
+            "AnchorPoint": {},
+            "Position": {
+              "X": 389.0303,
+              "Y": 306.8276
+            },
+            "Scale": {
+              "ScaleX": 1.75,
+              "ScaleY": 1.75
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.6079,
+              "Y": 0.3196
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 389.0303,
+            "RightMargin": 250.9697,
+            "TopMargin": 653.1724,
+            "BottomMargin": 306.8276,
+            "Tag": 53,
+            "ActionTag": -1656818494,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "p2",
+            "ctype": "ParticleObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "editor/lizixiaoguo.plist",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 1
+            },
+            "AnchorPoint": {},
+            "Position": {
+              "X": 223.7435,
+              "Y": 340.6675
+            },
+            "Scale": {
+              "ScaleX": 1.75,
+              "ScaleY": 1.75
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.3496,
+              "Y": 0.3549
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 223.7435,
+            "RightMargin": 416.2565,
+            "TopMargin": 619.3325,
+            "BottomMargin": 340.6675,
+            "Tag": 52,
+            "ActionTag": 1352347673,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "p1",
+            "ctype": "ParticleObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "editor/icon.png",
+              "Plist": ""
+            },
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 15,
+            "Scale9Width": 118,
+            "Scale9Height": 118,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 308.5713,
+              "Y": 859.9075
+            },
+            "Scale": {
+              "ScaleX": 0.35,
+              "ScaleY": 0.35
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4821,
+              "Y": 0.8957
+            },
+            "PreSize": {
+              "X": 0.2313,
+              "Y": 0.1542
+            },
+            "LeftMargin": 234.5713,
+            "RightMargin": 257.4287,
+            "TopMargin": 26.0925,
+            "BottomMargin": 785.9075,
+            "Tag": 43,
+            "ActionTag": -792544466,
+            "Size": {
+              "X": 148.0,
+              "Y": 148.0
+            },
+            "Name": "sp",
+            "ctype": "ImageViewObjectData"
+          }
+        ],
+        "Size": {
+          "X": 640.0,
+          "Y": 960.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "editor/font.png",
+        "editor/icon.png",
+        "editor/lizixiaoguo.plist",
+        "editor/lizixiaoguo.png",
+        "editor/s9a.png",
+        "editor/ystw.plist",
+        "editor/ystw.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}
