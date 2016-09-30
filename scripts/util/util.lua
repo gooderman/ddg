@@ -85,6 +85,21 @@ function preload_code_zip(filename)
 end
 -------------------------------------------------------
 
+--货币数字每3位用逗号分开
+function format_number_thousands(numb,fonttype)
+    local str = string.formatnumberthousands(numb)
+    fonttype = fonttype or 1   --默认系统文字
+    if fontType == 2 then  --图片文字 
+        --"/"
+        string.gsub(str,',','/')
+    else   --系统文字
+        --","
+    end
+    return str2
+end
+
+-------------------------------------------------------
+
 
 
 

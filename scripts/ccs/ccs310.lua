@@ -617,10 +617,36 @@ function M:playAnim(rpt,handler)
 	local act = self:genAction(rpt,handler)
 	if(act) then
 		self.node:runAction(act)
+		return true
+	end
+end
+function M:stopAnim()
+	if(self.actag) then
+		self.node:stopActionByTag(self.actag)
 	end
 end
 
+function M:playAll(rpt,handler)
+	self:playAnim(rpt, handler)
+	for _,v in self.childs do
+		v:playAnim(rpt, nil)
+	end
+end
+function M:stopAll()
+	self:stopAnim()
+	for _,v in self.childs do
+		v:stopAnim()
+	end
+end
+-- r.tag = a.Tag or -1
+-- r.actag = a.ActionTag or 0
+-- r.json = a
+-- r.childs
+-- r.parent
 function M:genAction(rpt,handler)
+	if(not self.actag or self.actag == 0) then
+		return
+	end
 	local anim 		= self.anim
 	local animlist  = self.animlist
 	local parent = self.parent
@@ -633,14 +659,21 @@ function M:genAction(rpt,handler)
 		local pp = {self.json.Position.X,self.json.Position.Y}
 		local act = ccsanim.gen(self.actag,anim,animlist,handler,{pos=pp})
 		if(rpt<=1) then
+			act:setTag(self.actag)
 			return act
 		elseif(rpt==-1) then
-			return CCRepeatForever:create(act)
+			act = CCRepeatForever:create(act)
+			act:setTag(self.actag)
+			return act
 		else	
-			return CCRepeat:create(act,rpt)
+			act = CCRepeat:create(act,rpt)
+			act:setTag(self.actag)
+			return act
 		end
 	end
 end
+
+
 
 M.play = M.playAnim
 M.childroot = M.getChildRoot

@@ -571,7 +571,328 @@ end
 -- if(self.uis["back"]) then
 --     self.uis["back"]:onButtonClicked(handler(self, self.goback))
 -- end
+------------------------------------------------------------------------
+function GenUiUtil.genJpgMaskSp(name,maskName,pathflag)
+    if(pathflag) then
+        name = pathflag .. name
+        maskName = pathflag .. maskName
+    end
 
+    local spp = CCShaderSprite:create(name)
+    if(spp) then
+        local maskTexture = CCTextureCache:sharedTextureCache():addImageForMask(maskName)
+        if(maskTexture) then
+            spp:setCC_Texture1(maskTexture)
+        end
+        spp:setShaderFromFile("shader/JpgMaskShader.vsh","shader/JpgMaskShader.fsh")
+        --Png图片渲染，混合处理
+        --如果原图是jpg不需要设置
+        local __mb = ccBlendFunc()
+        __mb.src = GL_SRC_ALPHA
+        __mb.dst = GL_ONE_MINUS_SRC_ALPHA
+        spp:setBlendFunc(__mb)
+    end
+    return spp
+end
+function GenUiUtil.genJpgMaskClipSp(name,maskName,clipName,pathflag)
+    if(pathflag) then
+        name = pathflag .. name
+        maskName = pathflag .. maskName
+        clipName = pathflag .. clipName
+    end
+
+    local spp = CCShaderSprite:create(name)
+    if(spp) then
+
+        -- local masksp =  display.newSprite(maskName)
+        -- if(masksp) then
+        --     spp:setCC_Texture1_s(masksp:getTexture())
+        --     --print("-------masksp stringForFormat",masksp:getTexture():stringForFormat())
+        -- end
+
+        local maskTexture = CCTextureCache:sharedTextureCache():addImageForMask(maskName)
+        if(maskTexture) then
+            spp:setCC_Texture1(maskTexture)
+        end
+
+
+        -- local clipsp =  display.newSprite(clipName)
+        -- if(clipsp) then
+        --     spp:setCC_Texture2_s(clipsp:getTexture())
+        -- end
+
+        local clipTexture = CCTextureCache:sharedTextureCache():addImageForMask(clipName)
+        if(clipTexture) then
+            spp:setCC_Texture2(clipTexture)
+        end
+        --print("-------spp stringForFormat",masksp:getTexture():stringForFormat())
+        spp:setShaderFromFile("shader/JpgMaskClipShader.vsh","shader/JpgMaskClipShader.fsh")
+        --Png图片渲染，混合处理
+        --如果原图是jpg不需要设置
+        local __mb = ccBlendFunc()
+        __mb.src = GL_SRC_ALPHA
+        __mb.dst = GL_ONE_MINUS_SRC_ALPHA
+        spp:setBlendFunc(__mb)
+    end
+    return spp
+end
+
+function GenUiUtil.attackShader(sp,name)
+    local name = string.upper(name)
+    local a,b = getShaderInfo(name)
+    if(sp and a and b) then
+        sp:setShaderFromFile(a,b)
+    end
+end
+function GenUiUtil.deattackShader(sp)
+    sp:resetShader()
+end
+-----------------------------------------------------------------------
+
+--帧动画生成
+function GenUiUtil.genFrameAnim(param)
+    -- local param =
+    -- {
+    --     res=
+    --     name=
+    --     a=
+    --     b=
+    --     reverse =
+    --     loop=
+    --     autodel=
+    --     onfinish=
+    --     delay=
+    --     dt=
+    -- }
+    local sharedSpriteFrameCache = CCSpriteFrameCache:sharedSpriteFrameCache()
+    if(param.res and param.res~='') then
+        sharedSpriteFrameCache:addSpriteFramesWithFile(param.res)
+    else
+        --单个文件处理
+        for i=param.a,param.b do
+            local str = string.format(param.name,i)
+            local sp = display.newSprite(str)
+            if(sp) then
+                local sz = sp:getContentSize()
+                local ssfm = CCSpriteFrame:createWithTexture(sp:getTexture(),CCRectMake(0, 0, sz.width, sz.height))
+                sharedSpriteFrameCache:addSpriteFrame(ssfm, str)
+            end
+        end
+    end
+    if(param.name) then
+        local frames = display.newFrames(param.name, param.a, param.b, param.reverse)
+        if(frames) then
+            local dt = param.dt or 0.01
+            local delay = param.delay or 0
+            local light = display.newSprite(frames[1])
+            if(param.a~=param.b) then
+                if(param.loop) then
+                    light:playAnimationForever(display.newAnimation(frames, dt),delay)
+                else
+                    light:playAnimationOnce(display.newAnimation(frames, dt),param.autodel,param.onfinish,delay)
+                end
+            else
+                -- ac='fadeinout',
+                -- acparam={from=0,to=255,dt=0.2,loop=true},
+                local rmdt = 0
+                local acparam = param.acparam
+                local seq
+                local seq2
+                if(param.ac=='bomb') then
+                    local dtt= acparam.dt or 0.03
+                    local seqa = transition.sequence(
+                                {
+                                    CCCallFunc:create(
+                                            function()
+                                                light:setOpacity(255)
+                                                light:setScale(1.0)
+                                            end
+                                        ),
+                                    CCScaleTo:create(dtt, 1.05),
+                                    CCScaleTo:create(dtt, 1.10),
+                                    CCScaleTo:create(5*dtt, 1.12),
+                                }
+                            )
+                    local seqb = transition.sequence(
+                                {
+                                    CCDelayTime:create(2*dtt),
+                                    CCFadeTo:create(5*dtt, 0)
+                                }
+                            )
+                    if(acparam.loop) then
+                        seq = CCRepeatForever:create(CCSpawn:createWithTwoActions(seqa, seqb))
+                    else
+                        seq = CCSpawn:createWithTwoActions(seqa, seqb)
+                        rmdt = 7*dtt
+                    end
+                elseif(param.ac=='fadeinout') then
+                    light:setOpacity(acparam.from)
+                    if(acparam.loop) then
+                        seq = transition.sequence(
+                                {
+                                    CCFadeTo:create(acparam.dt,acparam.to),
+                                    CCFadeTo:create(acparam.dt,acparam.from)
+                                }
+                            )
+                        seq = CCRepeatForever:create(seq)
+                    else
+                        seq = transition.sequence(
+                                {
+                                    CCDelayTime:create(acparam.delay or 0),
+                                    CCFadeTo:create(acparam.dt,acparam.to),
+                                    CCFadeTo:create(acparam.dt,acparam.from)
+                                }
+                            )
+                        rmdt = 2*dt
+                    end
+                end
+
+                if(seq) then
+                    light:runAction(seq)
+                end
+
+                if(param.autodel and rmdt>0) then
+                    seq2 =  transition.sequence(
+                            {
+                                CCDelayTime:create(rmdt),
+                                CCCallFunc:create(function()
+                                        if(param.onfinish) then
+                                            param.onfinish()
+                                        end
+                                        light:removeSelf()
+                                    end)
+                            }
+                        )
+                end
+                if(seq2) then
+                    light:runAction(seq2)
+                end
+            end
+            return light
+        end
+    end
+end
+
+--粒子node
+function GenUiUtil.genParticleNd(param)
+    -- arc={0.5,0.5},
+    -- res="img/UI/fight/zjtx_lizi_03.plist"}
+    -- pos={622,356},
+    -- scale={3,15},
+    -- rotate=-240,
+    -- autodel=true,
+    -- delay=0.5,
+    local nd = CCParticleSystemQuad:create(param.res)
+    if(nd) then
+        if(param.pos) then
+            nd:setPosition(ccp(param.pos[1],param.pos[2]))
+        end
+        if(param.arc) then
+            nd:setAnchorPoint(ccp(param.arc[1],param.arc[2]))
+        end
+        if(param.scale) then
+            nd:setScaleX(param.scale[1])
+            nd:setScaleY(param.scale[2])
+        end
+        if(param.rotate) then
+            nd:setRotation(param.rotate)
+        end
+        if(param.autodel and param.delay) then
+            local seq = transition.sequence(
+                    {
+                        CCDelayTime:create(param.delay),
+                        CCRemoveSelf:create(true)
+                    }
+                )
+            nd:runAction(seq)
+        end
+    end
+    return nd
+
+end
+
+--遮罩透明
+function GenUiUtil.genMaskNode(img,alpha)
+    --img reverse alpha, need show to set black , need hide to set white
+    local nd  = display.newNode()
+    local ly1 = display.newColorLayer(ccc4(255,255,255,alpha))
+    local sp  = display.newSprite(img)
+    local ly2 = display.newColorLayer(ccc4(0,0,0,0))
+    
+    if(not sp) then
+        return
+    end
+
+    ly1:addTo(nd)
+    sp:addTo(nd)
+    ly2:addTo(nd)
+ 
+    --keep rgb && use a of ly1 
+    local __mb1 = ccBlendFunc()
+    __mb1.src = GL_ZERO
+    __mb1.dst = GL_SRC_COLOR
+    --keep rgb && add a of sp to a
+    local __mb = ccBlendFunc()
+    __mb.src = GL_ONE
+    __mb.dst = GL_ONE
+    --use dst alpha && ly2 completely no use just call draw
+    local __mb2 = ccBlendFunc()
+    __mb2.src = GL_ZERO
+    __mb2.dst = GL_DST_ALPHA
+    
+    ly1:setBlendFunc(__mb1)
+    sp:setBlendFunc(__mb)
+    ly2:setBlendFunc(__mb2)
+    return nd,sp
+end
+
+--贝塞尔
+function GenUiUtil.genBezier(ddt,endpos,cpos1,cpos2,autort)
+    local conf = ccBezierConfig()
+    conf.endPosition = endpos
+    conf.controlPoint_1 = cpos1
+    conf.controlPoint_2 = cpos2
+    local act = CCBezierTo:create(ddt, conf)
+    act:setAutoRotate(autort or false)
+    return act
+end
+
+--fsp 父节点
+--ksspname 扩散节点
+function GenUiUtil.runKsEffect(fsp,ksspname,dt)
+    if(not fsp) then return end
+    local sz = fsp:getContentSize()
+    local eftSp
+    if(ksspname) then
+        eftSp = display.newSprite(ksspname)
+    else
+        eftSp = display.newSprite()
+        eftSp:setTexture(fsp:getTexture())
+        eftSp:setTextureRect(fsp:getTextureRect())
+        eftSp:setFlipX(fsp:isFlipX())
+    end
+    GenUiUtil.runKsEffectSp(fsp,eftSp,dt)
+end
+
+function GenUiUtil.runKsEffectSp(fsp,eftSp,dt,delaydt)
+    if(not (fsp and eftSp) ) then return end
+    local sz = fsp:getContentSize()
+    eftSp:setPosition(ccp(sz.width/2,sz.height/2))
+    fsp:addChild(eftSp)
+    local seq = transition.sequence({
+            CCDelayTime:create(delaydt or 0.0),
+            CCSpawn:createWithTwoActions(CCFadeOut:create(dt or 0.5), CCScaleTo:create(0.5,2.0)),
+            --CCCallFunc:create(function() eftSp:removeSelf() end)
+            CCRemoveSelf:create(false)
+
+        })
+    print("GenUiUtil.runKsEffectSp(fsp,eftSp)")
+    eftSp:runAction(seq)
+end
+
+-----------------------------------------------------------------------
+
+-----------------------------------------------------------------------
 function GenUiUtil.genKeyValueTTF(key,value,fontsz,color1,color2)
     local namestr = key
     local numbstr = "+" .. value
@@ -600,120 +921,6 @@ function GenUiUtil.genKeyValueTTF(key,value,fontsz,color1,color2)
     end
 
     return nd
-end
-function GenUiUtil.genJpgMaskSp(name,maskName,pathflag)
-    if(pathflag) then
-        name = pathflag .. name
-        maskName = pathflag .. maskName
-    end
-
-    local spp = CCShaderSprite:create(name)
-    if(spp) then
-        local maskTexture = CCTextureCache:sharedTextureCache():addImageForMask(maskName)
-        if(maskTexture) then
-            spp:setCC_Texture1(maskTexture)
-        end
-        spp:setShaderFromFile("shader/JpgMaskShader.vsh","shader/JpgMaskShader.fsh")
-        --Png图片渲染，混合处理
-        --如果原图是jpg不需要设置
-        local __mb = ccBlendFunc()
-        __mb.src = GL_SRC_ALPHA
-        __mb.dst = GL_ONE_MINUS_SRC_ALPHA
-        spp:setBlendFunc(__mb)
-    end
-    return spp
-end
-function GenUiUtil.genSprite(name,pathflag)
-    local maskName = string.sub(name,1,-5);
-    maskName = maskName.."a.jpg";
-    local sprite =  GenUiUtil.genJpgMaskSp(name,maskName,pathflag);
-    if sprite then
-        return sprite;
-    end
-end
-function GenUiUtil.genJpgMaskClipSp(name,maskName,clipName,pathflag)
-    if(pathflag) then
-        name = pathflag .. name
-        maskName = pathflag .. maskName
-        clipName = pathflag .. clipName
-    end
-
-    local spp = CCShaderSprite:create(name)
-    if(spp) then
---[[
-        local masksp =  display.newSprite(maskName)
-        if(masksp) then
-            spp:setCC_Texture1_s(masksp:getTexture())
-            --print("-------masksp stringForFormat",masksp:getTexture():stringForFormat())
-        end
---]]
-        local maskTexture = CCTextureCache:sharedTextureCache():addImageForMask(maskName)
-        if(maskTexture) then
-            spp:setCC_Texture1(maskTexture)
-        end
-
---[[
-        local clipsp =  display.newSprite(clipName)
-        if(clipsp) then
-            spp:setCC_Texture2_s(clipsp:getTexture())
-        end
---]]
-        local clipTexture = CCTextureCache:sharedTextureCache():addImageForMask(clipName)
-        if(clipTexture) then
-            spp:setCC_Texture2(clipTexture)
-        end
-        --print("-------spp stringForFormat",masksp:getTexture():stringForFormat())
-        spp:setShaderFromFile("shader/JpgMaskClipShader.vsh","shader/JpgMaskClipShader.fsh")
-        --Png图片渲染，混合处理
-        --如果原图是jpg不需要设置
-        local __mb = ccBlendFunc()
-        __mb.src = GL_SRC_ALPHA
-        __mb.dst = GL_ONE_MINUS_SRC_ALPHA
-        spp:setBlendFunc(__mb)
-    end
-    return spp
-end
-
-function GenUiUtil.attackShader(sp,name)
-    local name = string.upper(name)
-    local a,b = getShaderInfo(name)
-    if(sp and a and b) then
-        sp:setShaderFromFile(a,b)
-    end
-end
-function GenUiUtil.deattackShader(sp)
-    sp:resetShader()
-end
---fsp 父节点
---ksspname 扩散节点
-function GenUiUtil.runKsEffect(fsp,ksspname,dt)
-    if(not fsp) then return end
-    local sz = fsp:getContentSize()
-    local eftSp
-    if(ksspname) then
-        eftSp = display.newSprite(ksspname)
-    else
-        eftSp = display.newSprite()
-        eftSp:setTexture(fsp:getTexture())
-        eftSp:setTextureRect(fsp:getTextureRect())
-        eftSp:setFlipX(fsp:isFlipX())
-    end
-    GenUiUtil.runKsEffectSp(fsp,eftSp,dt)
-end
-
-function GenUiUtil.runKsEffectSp(fsp,eftSp,dt,delaydt)
-    if(not (fsp and eftSp) ) then return end
-    local sz = fsp:getContentSize()
-    eftSp:setPosition(ccp(sz.width/2,sz.height/2))
-    fsp:addChild(eftSp)
-    local seq = transition.sequence({
-            CCDelayTime:create(delaydt or 0.0),
-            CCSpawn:createWithTwoActions(CCFadeOut:create(dt or 0.5), CCScaleTo:create(0.5,2.0)),
-            CCCallFunc:create(function() eftSp:removeSelf() end)
-
-        })
-    print("GenUiUtil.runKsEffectSp(fsp,eftSp)")
-    eftSp:runAction(seq)
 end
 
 --数字节点
@@ -786,31 +993,6 @@ function GenUiUtil.runNumEffectParam(lb,param)
             end
         end
     end
-end
-
---货币数字每3位用逗号分开
-function GenUiUtil.formatCyByFlag(currencyCount,fontType)
-    local str1 = tostring(currencyCount)
-    str1 = string.reverse(str1)     --先将字符串颠倒顺序
-    local str2 = ""
-    fontType = fontType or 1    --默认图片文字
-    splitSign = "/"
-    if fontType == 2 then   --系统文字
-        splitSign = ","
-    end
-    for i=1,#str1,3 do
-       if(i>#str1) then
-            str2 =str2..str1.sub(str1,i-2, #str1)
-            break
-       end
-       str2 =str2..str1.sub(str1,i, i+2)..splitSign
-    end
-    if(str2.sub(str2,#str2)) == splitSign then
-        str2 = str2.sub(str2,1,#str2-1)
-    end
-    --最后再将顺序反转过来
-    str2 = string.reverse(str2)
-    return str2
 end
 
 --放大
@@ -1161,201 +1343,5 @@ function GenUiUtil.runFadeOutEffect(sp,direct,fadeRg,endrg)
 end
 
 ------------------------------------------------------------------------
-
---帧动画生成
-function GenUiUtil.genFrameAnim(param)
-    -- local param =
-    -- {
-    --     res=
-    --     name=
-    --     a=
-    --     b=
-    --     reverse =
-    --     loop=
-    --     autodel=
-    --     onfinish=
-    --     delay=
-    --     dt=
-    -- }
-    local sharedSpriteFrameCache = CCSpriteFrameCache:sharedSpriteFrameCache()
-    if(param.res and param.res~='') then
-        sharedSpriteFrameCache:addSpriteFramesWithFile(param.res)
-    else
-        --单个文件处理
-        for i=param.a,param.b do
-            local str = string.format(param.name,i)
-            local sp = display.newSprite(str)
-            if(sp) then
-                local sz = sp:getContentSize()
-                local ssfm = CCSpriteFrame:createWithTexture(sp:getTexture(),CCRectMake(0, 0, sz.width, sz.height))
-                sharedSpriteFrameCache:addSpriteFrame(ssfm, str)
-            end
-        end
-    end
-    if(param.name) then
-        local frames = display.newFrames(param.name, param.a, param.b, param.reverse)
-        if(frames) then
-            local dt = param.dt or 0.01
-            local delay = param.delay or 0
-            local light = display.newSprite(frames[1])
-            if(param.a~=param.b) then
-                if(param.loop) then
-                    light:playAnimationForever(display.newAnimation(frames, dt),delay)
-                else
-                    light:playAnimationOnce(display.newAnimation(frames, dt),param.autodel,param.onfinish,delay)
-                end
-            else
-                -- ac='fadeinout',
-                -- acparam={from=0,to=255,dt=0.2,loop=true},
-                local rmdt = 0
-                local acparam = param.acparam
-                local seq
-                local seq2
-                if(param.ac=='bomb') then
-                    local dtt= acparam.dt or 0.03
-                    local seqa = transition.sequence(
-                                {
-                                    CCCallFunc:create(
-                                            function()
-                                                light:setOpacity(255)
-                                                light:setScale(1.0)
-                                            end
-                                        ),
-                                    CCScaleTo:create(dtt, 1.05),
-                                    CCScaleTo:create(dtt, 1.10),
-                                    CCScaleTo:create(5*dtt, 1.12),
-                                }
-                            )
-                    local seqb = transition.sequence(
-                                {
-                                    CCDelayTime:create(2*dtt),
-                                    CCFadeTo:create(5*dtt, 0)
-                                }
-                            )
-                    if(acparam.loop) then
-                        seq = CCRepeatForever:create(CCSpawn:createWithTwoActions(seqa, seqb))
-                    else
-                        seq = CCSpawn:createWithTwoActions(seqa, seqb)
-                        rmdt = 7*dtt
-                    end
-                elseif(param.ac=='fadeinout') then
-                    light:setOpacity(acparam.from)
-                    if(acparam.loop) then
-                        seq = transition.sequence(
-                                {
-                                    CCFadeTo:create(acparam.dt,acparam.to),
-                                    CCFadeTo:create(acparam.dt,acparam.from)
-                                }
-                            )
-                        seq = CCRepeatForever:create(seq)
-                    else
-                        seq = transition.sequence(
-                                {
-                                    CCDelayTime:create(acparam.delay or 0),
-                                    CCFadeTo:create(acparam.dt,acparam.to),
-                                    CCFadeTo:create(acparam.dt,acparam.from)
-                                }
-                            )
-                        rmdt = 2*dt
-                    end
-                end
-
-                if(seq) then
-                    light:runAction(seq)
-                end
-
-                if(param.autodel and rmdt>0) then
-                    seq2 =  transition.sequence(
-                            {
-                                CCDelayTime:create(rmdt),
-                                CCCallFunc:create(function()
-                                        if(param.onfinish) then
-                                            param.onfinish()
-                                        end
-                                        light:removeSelf()
-                                    end)
-                            }
-                        )
-                end
-                if(seq2) then
-                    light:runAction(seq2)
-                end
-            end
-            return light
-        end
-    end
-end
-
---粒子node
-function GenUiUtil.genParticleNd(param)
-    -- arc={0.5,0.5},
-    -- res="img/UI/fight/zjtx_lizi_03.plist"}
-    -- pos={622,356},
-    -- scale={3,15},
-    -- rotate=-240,
-    -- autodel=true,
-    -- delay=0.5,
-    local nd = CCParticleSystemQuad:create(param.res)
-    if(nd) then
-        if(param.pos) then
-            nd:setPosition(ccp(param.pos[1],param.pos[2]))
-        end
-        if(param.arc) then
-            nd:setAnchorPoint(ccp(param.arc[1],param.arc[2]))
-        end
-        if(param.scale) then
-            nd:setScaleX(param.scale[1])
-            nd:setScaleY(param.scale[2])
-        end
-        if(param.rotate) then
-            nd:setRotation(param.rotate)
-        end
-        if(param.autodel and param.delay) then
-            local seq = transition.sequence(
-                    {
-                        CCDelayTime:create(param.delay),
-                        CCRemoveSelf:create(true)
-                    }
-                )
-            nd:runAction(seq)
-        end
-    end
-    return nd
-
-end
-
-function GenUiUtil.genMaskNode(img,alpha)
-    --img reverse alpha, need show to set black , need hide to set white
-    local nd  = display.newNode()
-    local ly1 = display.newColorLayer(ccc4(255,255,255,alpha))
-    local sp  = display.newSprite(img)
-    local ly2 = display.newColorLayer(ccc4(0,0,0,0))
-    
-    if(not sp) then
-        return
-    end
-
-    ly1:addTo(nd)
-    sp:addTo(nd)
-    ly2:addTo(nd)
- 
-    --keep rgb && use a of ly1 
-    local __mb1 = ccBlendFunc()
-    __mb1.src = GL_ZERO
-    __mb1.dst = GL_SRC_COLOR
-    --keep rgb && add a of sp to a
-    local __mb = ccBlendFunc()
-    __mb.src = GL_ONE
-    __mb.dst = GL_ONE
-    --use dst alpha && ly2 completely no use just call draw
-    local __mb2 = ccBlendFunc()
-    __mb2.src = GL_ZERO
-    __mb2.dst = GL_DST_ALPHA
-    
-    ly1:setBlendFunc(__mb1)
-    sp:setBlendFunc(__mb)
-    ly2:setBlendFunc(__mb2)
-    return nd,sp
-end
 
 return GenUiUtil
