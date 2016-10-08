@@ -647,6 +647,11 @@ end
 function GenUiUtil.deattackShader(sp)
     sp:resetShader()
 end
+function GenUiUtil.setDraggable(sp)
+    cc(sp):addComponent("components.ui.DraggableProtocol")
+          :exportMethods()
+          :setDraggableEnable(true)
+end
 -----------------------------------------------------------------------
 
 --帧动画生成

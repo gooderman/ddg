@@ -6,11 +6,27 @@ end)
 local timer = require("framework.scheduler")
 
 local Abeizer = import(".Abeizer")	
-function TestScene:ctor()
-	if(true) then		
-		self:addChild(Abeizer:new())
-		return
+
+
+function TestScene:pushScene()
+	local UI_POS = 
+	{   
+	    {n="backbtn",  t="mcbtn",  x=70,y=display.height-40,    scale=2.0,  	arc={0.5,0.5}, 		tg = 100,   ftg = 0,   od=1000, res={"s9b.png","s9b.png"}},
+	    {n="backtxt",  t="txt",    x=0, y=0,   					arc={0.5,0.5}, 	tg = 1001,  ftg = 100, od=1,    color={0,0,0},size=20,txt="back" },
+	 }
+	local sc = display.newScene()
+	local uis = GenUiUtil.genUis(UI_POS,sc,'ccs/')
+	uis.backbtn:onButtonClicked(function()
+		display.popScene()
+	end)
+	if(self.TND) then
+		self.TND:removeSelf()
+		sc:addChild(self.TND)
 	end
+	display.pushScene(sc)
+end
+
+function TestScene:ctor()
 	
 	local listconfig=
 	{		
@@ -40,18 +56,20 @@ function TestScene:ctor()
 		{"tstMount",	handler(self,self.tstMount)},
 		{"tstLuaSocket", handler(self,self.tstLuaSocket)},	
 		{"tstWebView",	handler(self,self.tstWebView)},	
+		{"tstBeizer",	handler(self,self.tstBeizer)},
 
 	}
 	self.TND = display.newNode()
 	self.TND:setPosition(0, 0)
+	self.TND:retain()
 	--self.TND:setTouchEnabled(true)
-	self:addChild(self.TND, 2)
+	-- self:addChild(self.TND, 2)
 	local ListView = require("uis.listview.ListView")
 	local ListViewCell = require("uis.listview.ListViewCell")
 	local CellBtn = require("uis.listview.CellButton")
-	local list = ListView.new(CCRect:new(0,0,display.width-100,display.height-200),1,true)
+	local list = ListView.new(CCRect:new(0,0,display.width-20,display.height-20),1,true)
 	local cells={}
-	local cell_w = display.width-100
+	local cell_w = display.width-20
 	local cell_h = 100
 	for i,v in pairs(listconfig) do
 		local cell = ListViewCell.new(CCSize(cell_w,cell_h),i)
@@ -82,16 +100,17 @@ function TestScene:ctor()
 		cell:addEventListener("onCellTap",
 			function(evt)
 				print("cell-onCellTap",evt.id)
+				self:pushScene()
 				listconfig[evt.id][2]()
 			end
 		)
 		table.insert(cells,cell)
 	end
 	list:addCells(cells)
-	list:setPosition(50, 100)
+	list:setPosition(10, 10)
 	self:addChild(list)
 	list:setTouchEnabled(true)
-	list:setCellAlign(0.8)	
+	list:setCellAlign(0.8)
 
 	-- self:tstShader()
 	-- self:tstRenderTexture()
@@ -742,8 +761,13 @@ function TestScene:tstBlend()
 	if(bg and mask) then
 		self:addTestNd(bg,true)
 		mask:pos(320,500)
-		mask:runAction(CCScaleTo:create(10.0,5.0))
-		mask:runAction(CCRotateBy:create(12.0,4600))
+		local seq = transition.sequence({
+				CCScaleTo:create(5.0,5.0),
+				CCScaleTo:create(5.0,1.0)
+			})
+		mask:runAction(seq)
+		mask:runAction(CCRotateBy:create(12.0,3600))
+		GenUiUtil.setDraggable(mask)
 	end
 end	
 function TestScene:tstAnim()
@@ -876,5 +900,11 @@ function TestScene:tstWebView()
 
 	end	
 end
+
+function TestScene:tstBeizer()
+	self:addTestNd(Abeizer:new())
+end
+
+
 
 return TestScene

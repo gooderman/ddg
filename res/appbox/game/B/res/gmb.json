@@ -15,17 +15,20 @@
         "Children": [
           {
             "ClipAble": false,
-            "ComboBoxIndex": 1,
+            "ComboBoxIndex": 2,
             "SingleColor": {
-              "R": 127,
-              "G": 127,
-              "B": 127
+              "G": 192,
+              "B": 203
             },
             "FirstColor": {
               "R": 150,
               "G": 200
             },
-            "EndColor": {},
+            "EndColor": {
+              "R": 191,
+              "G": 191,
+              "B": 191
+            },
             "ColorVector": {
               "ScaleY": 1.0
             },
@@ -58,8 +61,8 @@
             "Tag": 27,
             "ActionTag": -134542216,
             "Size": {
-              "X": 320.0,
-              "Y": 480.0
+              "X": 640.0,
+              "Y": 960.0
             },
             "Name": "bg",
             "ctype": "PanelObjectData"
@@ -95,8 +98,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 159.295,
-              "Y": 405.6198
+              "X": 145.7301,
+              "Y": 644.3635
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -105,17 +108,17 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.4978,
-              "Y": 0.845
+              "X": 0.2277,
+              "Y": 0.6712
             },
             "PreSize": {
-              "X": 0.2188,
-              "Y": 0.1479
+              "X": 0.1094,
+              "Y": 0.074
             },
-            "LeftMargin": 124.295,
-            "RightMargin": 125.705,
-            "TopMargin": 38.8802,
-            "BottomMargin": 370.1198,
+            "LeftMargin": 110.7301,
+            "RightMargin": 459.2699,
+            "TopMargin": 280.1365,
+            "BottomMargin": 608.8635,
             "Tag": 28,
             "ActionTag": -1299024194,
             "Size": {
@@ -127,8 +130,8 @@
           }
         ],
         "Size": {
-          "X": 320.0,
-          "Y": 480.0
+          "X": 640.0,
+          "Y": 960.0
         },
         "Name": "Scene",
         "ctype": "SingleNodeObjectData"

@@ -14,6 +14,63 @@
       "ObjectData": {
         "Children": [
           {
+            "ClipAble": false,
+            "BackColorAlpha": 229,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {
+              "R": 0,
+              "G": 128,
+              "B": 0
+            },
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 2.0757
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0022
+            },
+            "PercentWidthEnable": true,
+            "PercentHeightEnable": true,
+            "PercentWidthEnabled": true,
+            "PercentHeightEnabled": true,
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "TopMargin": -2.0757,
+            "BottomMargin": 2.0757,
+            "Tag": 143,
+            "ActionTag": -107317514,
+            "Size": {
+              "X": 640.0,
+              "Y": 960.0
+            },
+            "Name": "bg",
+            "ctype": "PanelObjectData"
+          },
+          {
             "FileData": {
               "Type": "Normal",
               "Path": "editor/s9a.png",
@@ -794,48 +851,6 @@
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "editor/lizixiaoguo.plist",
-              "Plist": ""
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 1
-            },
-            "AnchorPoint": {},
-            "Position": {
-              "X": 223.7435,
-              "Y": 340.6675
-            },
-            "Scale": {
-              "ScaleX": 1.75,
-              "ScaleY": 1.75
-            },
-            "CColor": {},
-            "IconVisible": true,
-            "PrePosition": {
-              "X": 0.3496,
-              "Y": 0.3549
-            },
-            "PreSize": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "LeftMargin": 223.7435,
-            "RightMargin": 416.2565,
-            "TopMargin": 619.3325,
-            "BottomMargin": 340.6675,
-            "Tag": 52,
-            "ActionTag": 1352347673,
-            "Size": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "Name": "p1",
-            "ctype": "ParticleObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "Normal",
               "Path": "editor/icon.png",
               "Plist": ""
             },
@@ -848,28 +863,72 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 308.5713,
-              "Y": 859.9075
+              "X": 309.9283,
+              "Y": 859.9072
             },
             "Scale": {
-              "ScaleX": 0.35,
-              "ScaleY": 0.35
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.4821,
+              "X": 0.4843,
               "Y": 0.8957
             },
             "PreSize": {
               "X": 0.2313,
               "Y": 0.1542
             },
-            "LeftMargin": 234.5713,
-            "RightMargin": 257.4287,
-            "TopMargin": 26.0925,
-            "BottomMargin": 785.9075,
+            "LeftMargin": 235.9283,
+            "RightMargin": 256.0717,
+            "TopMargin": 26.0928,
+            "BottomMargin": 785.9072,
             "Tag": 43,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "Normal",
+                  "Path": "editor/lizixiaoguo.plist",
+                  "Plist": ""
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 1
+                },
+                "AnchorPoint": {},
+                "Position": {
+                  "X": -26.9545,
+                  "Y": 79.107
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": true,
+                "PrePosition": {
+                  "X": -0.1821,
+                  "Y": 0.5345
+                },
+                "PreSize": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "LeftMargin": -26.9545,
+                "RightMargin": 174.9545,
+                "TopMargin": 68.893,
+                "BottomMargin": 79.107,
+                "Tag": 52,
+                "ActionTag": 1352347673,
+                "Size": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "Name": "p1",
+                "ctype": "ParticleObjectData"
+              }
+            ],
             "ActionTag": -792544466,
             "Size": {
               "X": 148.0,

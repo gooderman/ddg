@@ -628,13 +628,13 @@ end
 
 function M:playAll(rpt,handler)
 	self:playAnim(rpt, handler)
-	for _,v in self.childs do
-		v:playAnim(rpt, nil)
+	for _,v in pairs(self.childs or {}) do
+		v:playAnim(rpt, nil)		
 	end
 end
 function M:stopAll()
 	self:stopAnim()
-	for _,v in self.childs do
+	for _,v in pairs(self.childs or {}) do
 		v:stopAnim()
 	end
 end
@@ -658,6 +658,9 @@ function M:genAction(rpt,handler)
 	if(anim) then
 		local pp = {self.json.Position.X,self.json.Position.Y}
 		local act = ccsanim.gen(self.actag,anim,animlist,handler,{pos=pp})
+		if(not act) then
+			return
+		end
 		if(rpt<=1) then
 			act:setTag(self.actag)
 			return act

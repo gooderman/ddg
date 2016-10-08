@@ -39,16 +39,20 @@ function Abeizer:initUi()
 		        :exportMethods()
 		        :setDraggableEnable(true)
 
-		r.p1:setPositionType(kCCPositionTypeFree)
 		r.p2:setPositionType(kCCPositionTypeFree)
-		r.p1:setLife(0.0166*6)
 		r.p2:setLife(0.0166*3)
+		r.p2:setGravity(ccp(0,0))
+
+		local rnd = ccsload.load_child("editor/beizer.json",nil,'p1')
+		rnd.node:setPosition(200, 300)
+		self:addChild(rnd.node)
+
+		local lz = rnd.node
+		lz:scale(0.5)
 
 		r.btn:onButtonClicked(function()
 
-			local rnd = ccsload.load_child("editor/beizer.json",nil,'sp')
-			rnd.node:setPosition(200, 300)
-			self:addChild(rnd.node)
+
 
 
 			local ps={}
@@ -61,11 +65,8 @@ function Abeizer:initUi()
 			r.sp:setPosition(ps[1])
 			r.sp:setZOrder(100)
 
-			r.p1:setPosition(ps[1])
-			r.p1:setZOrder(100)
+			lz:setPosition(ps[1])
 
-			r.p2:setPosition(ps[1])
-			r.p1:setZOrder(100)
 			
 			local conf = ccBezierConfig()
 			conf.endPosition = ps[4]
@@ -78,12 +79,12 @@ function Abeizer:initUi()
 			conf2.controlPoint_1 = ps[5]
 			conf2.controlPoint_2 = ps[6]
 
-			local ddt=1.5
+			local ddt=1.0
 			local act1 = CCBezierTo:create(ddt, conf)
 			local act2 = CCBezierTo:create(ddt, conf2)
 
-			act1:setAutoRotate(true)
-			act2:setAutoRotate(true)
+			-- act1:setAutoRotate(true)
+			-- act2:setAutoRotate(false)
 			
 			local seq = transition.sequence({act1,act2})
 
@@ -94,14 +95,31 @@ function Abeizer:initUi()
 			rate=1.0
 
 			r.sp:runAction(CCEaseIn:create(seq:copy(), rate))
-
 			-- r.p1:runAction(CCEaseIn:create(seq:copy(), rate))
 
-			-- r.p2:runAction(CCEaseIn:create(seq:copy(), rate))
+			lz:runAction(CCEaseIn:create(seq:copy(), rate))
 
 			print("---rate===",rate)
 
 		end)
+
+		-- local sp  = GenUiUtil.genJpgMaskSp('head.jpg','hero1015a.jpg','UI/')
+		-- sp:pos(200,200)
+		-- sp:scale(0.5)
+		-- sp:addTo(self,2)
+	 --    cc(sp):addComponent("components.ui.DraggableProtocol")
+  --       :exportMethods()
+  --       :setDraggableEnable(true)
+
+  --       sp  = CCShaderSprite:create('UI/head.jpg')
+		-- sp:pos(200,200)
+		-- sp:scale(0.5)
+		-- sp:addTo(self)
+		-- cc(sp):addComponent("components.ui.DraggableProtocol")
+  --       :exportMethods()
+  --       :setDraggableEnable(true)
+  --       GenUiUtil.attackShader(sp, 'LIGHTBAND')
+		
 	end
 
 end

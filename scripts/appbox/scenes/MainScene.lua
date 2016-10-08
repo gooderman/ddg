@@ -6,28 +6,6 @@ function MainScene:ctor()
 	self:initui()
 end
 
-local socket = require "socket"
-local socket_core = require "socket.core"
-print(socket==socket_core)
-local ltn12 = require("ltn12") 		
-print(ltn12)
-local mime = require("mime") 		
-print(mime)
-local ftp = require("socket.ftp") 	
-print(ftp)
-local headers = require("socket.headers") 
-print(headers)
-local mbox = require("socket.mbox") 		
-print(mbox)
-local smtp = require("socket.smtp") 
-print(smtp)
-local tp = require("socket.tp") 
-print(tp)
-local url = require("socket.url") 
-print(url)
-local httptt = require("socket.http")
-print(httptt)
-
 function MainScene:initui()
 
 	local r = self:loadccs("appbox/box.json",true)
@@ -40,29 +18,21 @@ function MainScene:initui()
 		print(evt.type)
 		print(evt.data)
 		print(evt.node:getName())
-		if(evt.data=="good") then
+		if(evt.data=="btn_a") then
+			self:openById('A')
+		elseif(evt.data=="btn_b") then
 			self:openById('B')
-		end
-	end)
-	-- r.btn_a:onButtonClicked(function()
-	-- 		self:openById('A')
-	-- 	end)
-	
-	-- r.btn_b:onButtonClicked(function()
-	-- 		self:openById('B')
-	-- 	end)
-	r.btn_c:onButtonClicked(function()
-			self:openById('C')
-			--r:childroot("btn_c"):play(5)
-			local act = r._btn_c:action(1)
-			-- local act = r:childroot("btn_c"):action(1)
+		elseif(evt.data=="btn_c") then
+			-- self:openById('C')
+			local act = r._btn_a:action(1)
 			r.btn_c:runAction(act:copy())
 			r.btn_a:runAction(act:copy())
 			r.btn_b:runAction(act:copy())
-
 			print("tostring self = ",tostring(self))
-		end)
-
+		elseif(evt.data=="play") then
+			r:playAll(1)
+		end
+	end)
 	-- local function foo(a)
 	-- 	for i=1,a do
 	-- 		local r = coroutine.yield(i)
@@ -83,24 +53,9 @@ function MainScene:initui()
 	-- end,1.0)
 	-- tmact=act
 
-	local t={}
-	local r,e,h= 
-		httptt.request{ 
-	    	url = "http://www.baidu.com", 
-	    	sink = ltn12.sink.table(t),
-	    	--sink = ltn12.sink.file(io.open("/Users/jeep/a.txt"))
-	    	port= 80,
-	    	timeout = 1,
-	    	useragent= "good",
-	    }
-
-	print(e)
-	print(r)
-	dump(h)
-	for k,v in pairs(t) do
-		print(k,string.sub(v,1,16))
-	end
-
+	GenUiUtil.setDraggable(r.img)
+	r.img:scale(1.0)
+	r.img:rotation(0)
 end
 
 function MainScene:openById(name)
