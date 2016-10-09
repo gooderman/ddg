@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>frames</key>
+		<dict>
+			<key>UI/xishouA.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{296,195},{119,69}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false />
+				<key>sourceSize</key>
+				<string>{119,69}</string>
+			</dict>
+			<key>UI/xishouB.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{415,260},{119,69}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<true />
+				<key>sourceSize</key>
+				<string>{119,69}</string>
+			</dict>
+			<key>UI/ZD_shuzi_01.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,444},{296,30}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false />
+				<key>sourceSize</key>
+				<string>{296,30}</string>
+			</dict>
+			<key>UI/monkey.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{296,0},{124,149}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<true />
+				<key>sourceSize</key>
+				<string>{124,149}</string>
+			</dict>
+			<key>UI/missB.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{296,379},{119,69}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<true />
+				<key>sourceSize</key>
+				<string>{119,69}</string>
+			</dict>
+			<key>UI/gift.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{445,0},{65,68}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false />
+				<key>sourceSize</key>
+				<string>{65,68}</string>
+			</dict>
+			<key>UI/god.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{415,142},{118,70}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<true />
+				<key>sourceSize</key>
+				<string>{118,70}</string>
+			</dict>
+			<key>UI/item_2.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,0},{148,148}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false />
+				<key>sourceSize</key>
+				<string>{148,148}</string>
+			</dict>
+			<key>UI/item_6.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,148},{148,148}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false />
+				<key>sourceSize</key>
+				<string>{148,148}</string>
+			</dict>
+			<key>UI/item_7.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{0,296},{148,148}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false />
+				<key>sourceSize</key>
+				<string>{148,148}</string>
+			</dict>
+			<key>UI/missA.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{365,379},{119,69}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<true />
+				<key>sourceSize</key>
+				<string>{119,69}</string>
+			</dict>
+			<key>UI/cka.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{365,264},{40,40}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false />
+				<key>sourceSize</key>
+				<string>{40,40}</string>
+			</dict>
+			<key>UI/ckb.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{365,304},{40,40}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false />
+				<key>sourceSize</key>
+				<string>{40,40}</string>
+			</dict>
+			<key>UI/crit.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{296,124},{119,71}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false />
+				<key>sourceSize</key>
+				<string>{119,71}</string>
+			</dict>
+			<key>UI/cup.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{445,68},{74,57}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<true />
+				<key>sourceSize</key>
+				<string>{74,57}</string>
+			</dict>
+		</dict>
+		<key>metadata</key>
+		<dict>
+			<key>format</key>
+			<integer>2</integer>
+			<key>textureFileName</key>
+			<string>mainplist.png</string>
+			<key>realTextureFileName</key>
+			<string>mainplist.png</string>
+			<key>size</key>
+			<string>{512,512}</string>
+		</dict>
+		<key>texture</key>
+		<dict>
+			<key>width</key>
+			<integer>512</integer>
+			<key>height</key>
+			<integer>512</integer>
+		</dict>
+	</dict>
+</plist>
