@@ -851,6 +851,78 @@ function GenUiUtil.genMaskNode(img,alpha)
     return nd,sp
 end
 
+--剪切遮罩
+function GenUiUtil.genClipNode(img,clip)
+    --img reverse alpha, need show to set black , need hide to set white
+    local nd  = display.newNode()
+    local sp  = display.newSprite(img)
+    local clip = display.newSprite(clip)
+    if(not sp) then
+        return
+    end
+    if(not clip) then
+        return
+    end
+
+    clip:addTo(nd)
+    sp:addTo(nd)
+ 
+    --use src alpha && clip alpha
+    local __mb2 = ccBlendFunc()
+    __mb2.src = GL_ZERO
+    __mb2.dst = GL_SRC_ALPHA
+    --keep rgb && add a of sp to a
+    local __mb = ccBlendFunc()
+    __mb.src = GL_ONE_MINUS_DST_ALPHA
+    __mb.dst = GL_DST_ALPHA
+    
+    clip:setBlendFunc(__mb2)
+    sp:setBlendFunc(__mb)
+    
+    return nd,sp,clip
+end
+
+function GenUiUtil.genClipLoadingBar(img,clip,s9cap)
+    local nd  = display.newNode()
+    local sp  = display.newSprite(img)
+    if(not sp) then
+        return
+    end
+    local sz = sp:getContentSize()
+    nd:setContentSize(sz)
+    local clip = display.newScale9Sprite(clip,0,0,CCSize(s9cap[1]*2,s9cap[1]*2),CCRect(s9cap[1], s9cap[2], s9cap[3], s9cap[4]))
+    if(not clip) then
+        return
+    end
+    clip:pos(0,sz.height/2):arch(0,0.5)
+    clip:addTo(nd,0,1)
+    sp:pos(0,0):arch(0,0)
+    sp:addTo(nd,0,2)
+    --use src alpha && clip alpha
+    local __mb2 = ccBlendFunc()
+    __mb2.src = GL_ZERO
+    __mb2.dst = GL_SRC_ALPHA
+    --keep rgb && add a of sp to a
+    local __mb = ccBlendFunc()
+    __mb.src = GL_ONE_MINUS_DST_ALPHA
+    __mb.dst = GL_DST_ALPHA
+    
+    clip:setBlendFunc(__mb2)
+    sp:setBlendFunc(__mb)
+
+    nd.setPercent=function(node,per)
+        local clip = node:getChildByTag(1)
+        local sz = clip:getContentSize()
+        local w = node:getContentSize().width
+        w = w*per/100
+        if(w>sz.width) then
+            sz.width=w
+            clip:setContentSize(sz)
+        end
+    end
+    return nd
+end
+
 --贝塞尔
 function GenUiUtil.genBezier(ddt,endpos,cpos1,cpos2,autort)
     local conf = ccBezierConfig()

@@ -52,6 +52,7 @@ function TestScene:ctor()
 		{"tstEdit", 	handler(self,self.tstEdit)},
 		{"tstGif",		handler(self,self.tstGif)},
 		{"tstBlend",	handler(self,self.tstBlend)},
+		{"tstBlendClip",	handler(self,self.tstBlendClip)},
 		{"tstAnim",		handler(self,self.tstAnim)},
 		{"tstMount",	handler(self,self.tstMount)},
 		{"tstLuaSocket", handler(self,self.tstLuaSocket)},	
@@ -769,6 +770,37 @@ function TestScene:tstBlend()
 		mask:runAction(CCRotateBy:create(12.0,3600))
 		GenUiUtil.setDraggable(mask)
 	end
+end
+function TestScene:tstBlendClip()
+	local bg = display.newSprite("UI/cpt_bg_02.png")
+	bg:arch(0,0):pos(0,0):scale(2.0)
+	self:addTestNd(bg)
+
+	local nd = GenUiUtil.genClipLoadingBar("UI/cpt_bg_01.png","UI/filter2.png",{50,50,1,1})
+	if(nd) then
+		nd:scale(0.5)
+		self:addTestNd(nd,true)
+		GenUiUtil.setDraggable(nd)
+		local act = CCActionTween:create(5.0,"per",1,100,function(v,key)
+			nd:setPercent(v)
+		end)
+		nd:runAction(act)
+	end
+
+	local nd , sp, clip = GenUiUtil.genClipNode("UI/head.jpg","UI/filter2.png")
+	if(nd and sp) then
+		self:addTestNd(nd,true)
+		sp:pos(320,500)
+		sp:scale(1.5)
+		clip:pos(320,500)
+		local seq = transition.sequence({
+			CCScaleTo:create(2.0,5.0),
+			CCScaleTo:create(2.0,0.5)
+		})
+		clip:runAction(CCRepeatForever:create(seq))
+		GenUiUtil.setDraggable(clip)
+	end
+	
 end	
 function TestScene:tstAnim()
 	local r = ccsload.load("AnimScene.json")
