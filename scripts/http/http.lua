@@ -5,6 +5,9 @@ function http.req(id,url,reqtype,data,waittime,handle)
             http.response(id,event,handle)
     end, url, rp)
     if request then
+        if(rp==kCCHTTPRequestMethodPOST and data) then
+            request:setPOSTData(data)
+        end
         request:setTimeout(waittime or 60)
         request:start()
     end

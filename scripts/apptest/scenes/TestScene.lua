@@ -663,7 +663,7 @@ end
 function TestScene:tstHttp()
 	function httprsp(id,type,data)
 			if(type==0) then
-				print(id,type,string.len(data))
+				print(id,type,string.len(data),string.sub(data,1,32))
 			elseif(type==1) then
 				print(id,type,data[1],data[2])
 			elseif(type==-1) then
@@ -672,8 +672,9 @@ function TestScene:tstHttp()
 				print(id,type,data)
 			end
 	end
-	http.get('bing',"http://www.bing.com",20,httprsp)
-	http.get('sina',"http://www.sina.com",20,httprsp)
+	-- http.get('bing',"http://www.bing.com",20,httprsp)
+	-- http.get('sina',"http://www.sina.com",20,httprsp)
+	http.get('openresty',"http://localhost:8080",20,httprsp)
 end
 function TestScene:tstZip()
 	local fd = zipfile_open('framework_precompiled.zip')
