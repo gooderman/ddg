@@ -16,7 +16,11 @@ function GenUiUtil.genUis(ustb,parent,pathflag)
         local parentNode = (ps.ftg and ps.ftg>0) and parent:getChildByTag(ps.ftg) or parent
         if(t=="sp") then
             if ps.size then
-                uis[ps.n] = display.newScale9Sprite(pathflag .. ps.res,0,0,CCSize(ps.size[1],ps.size[2]))
+                local caprect
+                if(ps.cap) then
+                    caprect = CCRect(ps.cap[1], ps.cap[2], ps.cap[3] or 1, ps.cap[4] or 1)
+                end    
+                uis[ps.n] = display.newScale9Sprite(pathflag .. ps.res,0,0,CCSize(ps.size[1],ps.size[2]),caprect)   
             else
                 uis[ps.n] = display.newSprite( pathflag .. ps.res )
             end
@@ -870,7 +874,8 @@ function GenUiUtil.genClipNode(img,clip)
     --use src alpha && clip alpha
     local __mb2 = ccBlendFunc()
     __mb2.src = GL_ZERO
-    __mb2.dst = GL_SRC_ALPHA
+    -- __mb2.dst = GL_SRC_ALPHA --使用正常遮罩，如果clip 超出 img 边界，黑色[可使用shader避免]
+    __mb2.dst = GL_ONE_MINUS_SRC_COLOR --使用反色遮罩，不会出现边界外黑色
     --keep rgb && add a of sp to a
     local __mb = ccBlendFunc()
     __mb.src = GL_ONE_MINUS_DST_ALPHA
@@ -901,7 +906,8 @@ function GenUiUtil.genClipLoadingBar(img,clip,s9cap)
     --use src alpha && clip alpha
     local __mb2 = ccBlendFunc()
     __mb2.src = GL_ZERO
-    __mb2.dst = GL_SRC_ALPHA
+    -- __mb2.dst = GL_SRC_ALPHA --使用正常遮罩，如果clip 超出 img 边界，黑色[可使用shader避免]
+    __mb2.dst = GL_ONE_MINUS_SRC_COLOR --使用反色遮罩，不会出现边界外黑色
     --keep rgb && add a of sp to a
     local __mb = ccBlendFunc()
     __mb.src = GL_ONE_MINUS_DST_ALPHA
@@ -909,13 +915,13 @@ function GenUiUtil.genClipLoadingBar(img,clip,s9cap)
     
     clip:setBlendFunc(__mb2)
     sp:setBlendFunc(__mb)
-
+    local minw = s9cap[1]*2
     nd.setPercent=function(node,per)
         local clip = node:getChildByTag(1)
         local sz = clip:getContentSize()
         local w = node:getContentSize().width
         w = w*per/100
-        if(w>sz.width) then
+        if(w>minw) then
             sz.width=w
             clip:setContentSize(sz)
         end

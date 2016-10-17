@@ -58,6 +58,7 @@ function TestScene:ctor()
 		{"tstLuaSocket", handler(self,self.tstLuaSocket)},	
 		{"tstWebView",	handler(self,self.tstWebView)},	
 		{"tstBeizer",	handler(self,self.tstBeizer)},
+		{"tstPhics",	handler(self,self.tstPhics)},
 
 	}
 	self.TND = display.newNode()
@@ -131,9 +132,9 @@ function TestScene:initUi()
 end
 
 function TestScene:addTestNd(nd,notrm)
-	if(not notrm) then
-		self.TND:removeAllChildren()
-	end
+	-- if(not notrm) then
+	-- 	self.TND:removeAllChildren()
+	-- end
 	self.TND:addChild(nd)
 end
 function TestScene:cleanTestNd()
@@ -263,6 +264,35 @@ function TestScene:tstMesh()
 	-- spp:initVertices(gl.GL_TRIANGLE_STRIP,"100,100,1,1|100,50,1,0.7|-100,50,0,1|100,-50,1,0.3|-100,-50,0,0|100,-100,1,0")
 	self:addTestNd(spp,true)
 	--spp:runAction(CCRotateBy:create(10.0,720))
+
+	local shape = require("util.shape")
+	local spp = CCShaderSprite:create("UI/head.jpg")
+	spp:setAnchorPoint(ccp(0,0))
+	spp:setScale(1.0)
+	spp:setFlipX(true)
+	spp:setPosition(display.cx,display.cy-400)
+	-- spp:initVertices(gl.GL_TRIANGLE_FAN,str)
+	self:addTestNd(spp,true)
+	GenUiUtil.setDraggable(spp)
+
+		local w,h,seg = 200,400,20
+		local ty = shape.new('ellipse',w,h,seg)
+		-- local ty = shape.new('regular',6)
+		dump(ty)
+		local str = ""
+		for _,v in ipairs(ty) do
+			v[1]=v[1]+0.5
+			v[2]=v[2]+0.5
+			v[3]=v[1]*w
+			v[4]=v[2]*h
+			if(v[1]>1.0) then v[1]=1.0 end
+			if(v[1]<0.0) then v[1]=0.0 end
+			if(v[2]>1.0) then v[2]=1.0 end
+			if(v[2]<0.0) then v[2]=0.0 end
+			str = str .. string.format('%f,%f,%f,%f|',v[3],v[4],v[1],v[2])
+		end	
+		spp:initVertices(gl.GL_TRIANGLE_FAN,str)
+
 end
 
 function TestScene:tstPageview()
@@ -772,13 +802,13 @@ function TestScene:tstBlend()
 	end
 end
 function TestScene:tstBlendClip()
-	local bg = display.newSprite("UI/cpt_bg_02.png")
+	local bg = display.newSprite("UI/cpt_bg_01.png")
 	bg:arch(0,0):pos(0,0):scale(2.0)
 	self:addTestNd(bg)
 
-	local nd = GenUiUtil.genClipLoadingBar("UI/cpt_bg_01.png","UI/filter2.png",{50,50,1,1})
+	local nd = GenUiUtil.genClipLoadingBar("UI/head.jpg","UI/filter3.png",{50,50,1,1})
 	if(nd) then
-		nd:scale(0.5)
+		nd:scale(1.0)
 		self:addTestNd(nd,true)
 		GenUiUtil.setDraggable(nd)
 		local act = CCActionTween:create(5.0,"per",1,100,function(v,key)
@@ -787,11 +817,11 @@ function TestScene:tstBlendClip()
 		nd:runAction(act)
 	end
 
-	local nd , sp, clip = GenUiUtil.genClipNode("UI/head.jpg","UI/filter2.png")
+	local nd , sp, clip = GenUiUtil.genClipNode("UI/head.jpg","UI/filter3.png")
 	if(nd and sp) then
 		self:addTestNd(nd,true)
 		sp:pos(320,500)
-		sp:scale(1.5)
+		sp:scale(1.0)
 		clip:pos(320,500)
 		local seq = transition.sequence({
 			CCScaleTo:create(2.0,5.0),
@@ -936,7 +966,11 @@ end
 function TestScene:tstBeizer()
 	self:addTestNd(Abeizer:new())
 end
+function TestScene:tstPhics()
+	local 
 
+	self:addTestNd()
+end
 
 
 return TestScene
