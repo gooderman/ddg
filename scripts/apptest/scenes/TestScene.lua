@@ -21,6 +21,7 @@ function TestScene:pushScene()
 	end)
 	if(self.TND) then
 		self.TND:removeSelf()
+		self.TND:removeAllChildren()
 		sc:addChild(self.TND)
 	end
 	display.pushScene(sc)
@@ -29,7 +30,9 @@ end
 function TestScene:ctor()
 	
 	local listconfig=
-	{		
+	{
+		{"tstBlend",	handler(self,self.tstBlend)},
+		{"tstBlendClip",	handler(self,self.tstBlendClip)},		
 		{"tstScrollview",	handler(self,self.tstScrollview)},
 		{"tstListview",		handler(self,self.tstListview)},
 		{"tstPageview",		handler(self,self.tstPageview)},
@@ -51,8 +54,6 @@ function TestScene:ctor()
 		{"tstShrot",	handler(self,self.tstShort)},
 		{"tstEdit", 	handler(self,self.tstEdit)},
 		{"tstGif",		handler(self,self.tstGif)},
-		{"tstBlend",	handler(self,self.tstBlend)},
-		{"tstBlendClip",	handler(self,self.tstBlendClip)},
 		{"tstAnim",		handler(self,self.tstAnim)},
 		{"tstMount",	handler(self,self.tstMount)},
 		{"tstLuaSocket", handler(self,self.tstLuaSocket)},	
@@ -119,6 +120,7 @@ function TestScene:ctor()
 	-- self:tstCCS()
 	-- self:tstShader2()
 	-- self:tstFs()
+	-- self:pushScene()
 	-- self:tstBlend()
 end
 
@@ -132,9 +134,9 @@ function TestScene:initUi()
 end
 
 function TestScene:addTestNd(nd,notrm)
-	-- if(not notrm) then
-	-- 	self.TND:removeAllChildren()
-	-- end
+	if(not notrm) then
+		self.TND:removeAllChildren()
+	end
 	self.TND:addChild(nd)
 end
 function TestScene:cleanTestNd()
@@ -789,7 +791,7 @@ function TestScene:tstBlend()
 	nd:arch(0,0):pos(0,0):scale(2.0)
 	self:addTestNd(nd)
 
-	local bg , mask = GenUiUtil.genMaskNode("UI/filter.png",60)
+	local bg , mask = GenUiUtil.genLightMaskNode("UI/light.png",128)
 	if(bg and mask) then
 		self:addTestNd(bg,true)
 		mask:pos(320,500)
@@ -968,7 +970,6 @@ function TestScene:tstBeizer()
 	self:addTestNd(Abeizer:new())
 end
 function TestScene:tstPhics()
-	local 
 
 	self:addTestNd()
 end

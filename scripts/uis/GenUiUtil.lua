@@ -882,7 +882,7 @@ function GenUiUtil.genClipNode(img,clip)
     __mb.dst = GL_DST_ALPHA
     
     clip:setBlendFunc(__mb2)
-    sp:setBlendFunc(__mb)
+    sp:setBlendFunc(__mb)   
     
     return nd,sp,clip
 end
@@ -927,6 +927,27 @@ function GenUiUtil.genClipLoadingBar(img,clip,s9cap)
         end
     end
     return nd
+end
+
+function GenUiUtil.genLightMaskNode(img,alpha)
+    --img reverse alpha, need show to set black , need hide to set white
+    local nd  = display.newNode()   
+    local sp  = display.newSprite(img)
+    
+    if(not sp) then
+        return
+    end
+
+    sp:addTo(nd)
+ 
+    local __mb2 = ccBlendFunc()
+    __mb2.src = GL_SRC_ALPHA
+    __mb2.dst = GL_ONE_MINUS_SRC_ALPHA
+    
+    -- ly1:setBlendFunc(__mb1)
+    sp:setBlendFunc(__mb2)
+    sp:setColor(ccc3(255,255,0))
+    return nd,sp
 end
 
 --贝塞尔
