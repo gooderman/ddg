@@ -23,3 +23,6 @@ CONFIG_SCREEN_HEIGHT = 960
 
 -- auto scale mode
 CONFIG_SCREEN_AUTOSCALE = "FIXED_HEIGHT"
+
+--adjust screen
+CONFIG_SCREEN_RESOLUTION = kResolutionNoBorder -- kResolutionNoBorder kResolutionShowAll

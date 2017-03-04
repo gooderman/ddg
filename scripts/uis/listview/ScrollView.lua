@@ -12,6 +12,7 @@ end)
 local FORCE_ACC=1000 --摩擦力
 local OUT_BOUNCE_RATE=10 --越界减速1/15每帧
 local SPEED_MIN=50--惯性最低速度
+local AUTO_SCROLL_SPEED_MAX=3000--惯性最大速度
 local OUT_BOUNCE_DRAG_RATE=0.4--越界拖动位移系数
 
 function ScrollView:ctor(rect, direction,clip)
@@ -202,19 +203,28 @@ function ScrollView:backscroll()
 	self:runAction(act)	
 	return true
 end
-
+local function limit_autospeed(spd)
+	if(spd>0 and spd>AUTO_SCROLL_SPEED_MAX) then
+		spd = AUTO_SCROLL_SPEED_MAX
+	elseif spd<0 and spd<-AUTO_SCROLL_SPEED_MAX then
+		spd = -AUTO_SCROLL_SPEED_MAX
+	end
+	return spd
+end
 --惯性滚动
 function ScrollView:autoscroll()
 	local dx = self.drag.ex-self.drag.sx
 	local dy = self.drag.ey-self.drag.sy
 	local dt = self.drag.etick-self.drag.stick
+	local autospeed = 0
 	if self.direction == 1 then
 		if(dt>0.5 or math.abs(dy)<10) then
 			self:resetspeed()
 			return false
 		end
 		if(dy~=0) then
-			self:setspeed(dy/dt)
+			autospeed = limit_autospeed(dy/dt)
+			self:setspeed(autospeed)
 			return true
 		end
 	else
@@ -223,7 +233,8 @@ function ScrollView:autoscroll()
 			return false
 		end
 		if(dx~=0) then
-			self:setspeed(dx/dt)
+			autospeed = limit_autospeed(dy/dt)
+			self:setspeed(autospeed)
 			return true
 		end
 	end
